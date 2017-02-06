@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<html>
+        <head>
+            <title>test</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.css">
+            <link rel="javascript" type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.js">
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+            <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+
+        </head>
+        <body>
+            <div class="logo">
+               <h2 class="ui center aligned icon header"><i class="circular book icon"></i>Cүзлекләр</a></h2>
+               <br>
+            </div>
+
+
+            <div class="ui cards myLeft">
+            {% for post in posts %}
+              <div class="green card">
+                <div class="content">
+                  <div class="header">{{ post.title }}</div>
+                  <div class="meta"><i class="russia flag"> </i> {{ post.textRu|linebreaksbr }}</div>
+                  
+                  <div class="description">{{ post.text|linebreaksbr }}</div>
+                </div>
+                <div class="extra content">
+                    <span class="left floated like"><i class="like icon"></i> Миңа ошый </span>
+                    <span class="right floated star"><i class="star icon"></i> Сакларга </span>
+                </div>
+                
+            </div>
+            {% endfor %}
+            </div>
+
+            <!-- <div class="ui items">
+            {% for post in posts %}
+                <div class="item">
+                    
+                    <div class="content">
+                        <a class="header">{{ post.title }}</a>
+                        <div class="meta">
+                            <span>{{ post.published_date }}</span>
+                        </div>
+                        <div class="description">
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </div>
+                       
+                    </div>
+                 </div>
+                 <div class="ui section divider"></div>
+            {% endfor %} -->
+        </body>
+</html>
